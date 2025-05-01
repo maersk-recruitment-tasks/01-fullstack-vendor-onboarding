@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import VendorForm from './components/VendorForm.vue';
 import VendorList from './components/VendorList.vue';
-import { useVendorStore } from './stores/vendorStore';
-
 </script>
 
 <template>
