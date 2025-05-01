@@ -7,7 +7,7 @@ this assignment gives you a simple, self-contained problem where you can show ho
 
 Your task is to build a full-stack web application called **Trusted Partners Portal** that enables users to:
 
-- Register a partner (name, contact person, email, partner type [Supplier/Customer)
+- Register a partner (name, contact person, email, partner type [Supplier/Customer]
 - View a list of registered partners
 - *(Optional)* Edit or delete a partner entry
 
