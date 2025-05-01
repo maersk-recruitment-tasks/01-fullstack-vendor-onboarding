@@ -5,14 +5,14 @@
 Working at Maersk means embracing DevOps practices and aiming for continuous delivery. While real-world system infrastructures can be complex, 
 this assignment gives you a simple, self-contained problem where you can show how you'd build for continuous delivery from the ground up.
 
-Your task is to build a full-stack web application called **Trusted Partners Portal** that enables users to:
+Your task is to build a full-stack web application called **Trusted vendor Portal** that enables users to:
 
-- Register a partner (name, contact person, email, partner type [Supplier/Customer]
+- Register a vendor (name, contact person, email, partner type [Supplier/Partner]
 - View a list of registered partners
 - *(Optional)* Edit or delete a partner entry
 
 ---
-## Partner Object Example
+## Vendor Object Example
     {
       "name": "Acme Freight",
       "contact_person": "John Doe",
@@ -31,8 +31,8 @@ Your task is to build a full-stack web application called **Trusted Partners Por
 ### Backend
 
 - Expose 1–2 API endpoints to:
-  - Register a new partner
-  - Retrieve the list of partners
+  - Register a new vendor
+  - Retrieve the list of vendors
 - Use simple data persistence:
   - In-memory storage or **SQLite**
 - Supported languages/frameworks:
