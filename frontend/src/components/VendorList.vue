@@ -26,22 +26,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue';
+import { onMounted } from 'vue';
 import { useVendorStore } from '../stores/vendorStore';
 
-const props = defineProps({
-  refreshTrigger: {
-    type: Number,
-    default: 0
-  }
-});
-
+// Using the vendor store directly, no need for local props or state
 const vendorStore = useVendorStore();
 
 onMounted(() => {
   vendorStore.fetchVendors();
 });
-
 </script>
 
 <style scoped>

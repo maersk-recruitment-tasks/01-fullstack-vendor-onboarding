@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import VendorForm from './components/VendorForm.vue';
 import VendorList from './components/VendorList.vue';
+import { useVendorStore } from './stores/vendorStore';
 
-const refreshTrigger = ref(0);
-
-function handleVendorAdded() {
-  refreshTrigger.value += 1;
-}
 </script>
 
 <template>
@@ -19,7 +14,7 @@ function handleVendorAdded() {
     <main>
       <div class="content-layout">
         <VendorForm @vendor-added="handleVendorAdded" />
-        <VendorList :refreshTrigger="refreshTrigger" />
+        <VendorList />
       </div>
     </main>
   </div>

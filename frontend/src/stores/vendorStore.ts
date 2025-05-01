@@ -13,7 +13,7 @@ export const useVendorStore = defineStore('vendor', () => {
     error.value = null
     
     try {
-      vendors.value = await VendorService.getVendors()
+      vendors.value = (await VendorService.getVendors()).reverse();
     } catch (err) {
       error.value = 'Failed to load vendors. Please try again later.'
       console.error(err)
