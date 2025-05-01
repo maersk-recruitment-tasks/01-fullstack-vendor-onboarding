@@ -42,12 +42,6 @@ onMounted(() => {
   vendorStore.fetchVendors();
 });
 
-// Watch for refresh triggers from parent
-watch(() => props.refreshTrigger, (newValue, oldValue) => {
-  if (newValue > 0 && newValue !== oldValue) {
-    vendorStore.fetchVendors();
-  }
-});
 </script>
 
 <style scoped>
