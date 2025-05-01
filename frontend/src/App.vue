@@ -11,7 +11,7 @@ import VendorList from './components/VendorList.vue';
     
     <main>
       <div class="content-layout">
-        <VendorForm @vendor-added="handleVendorAdded" />
+        <VendorForm />
         <VendorList />
       </div>
     </main>
