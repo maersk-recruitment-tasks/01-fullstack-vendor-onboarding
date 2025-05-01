@@ -48,75 +48,57 @@
       </div>
       
       <div class="form-actions">
-        <button type="submit" :disabled="isSubmitting">
-          {{ isSubmitting ? 'Submitting...' : 'Add Vendor' }}
+        <button type="submit" :disabled="vendorStore.loading">
+          {{ vendorStore.loading ? 'Submitting...' : 'Add Vendor' }}
         </button>
-        <div v-if="error" class="error-message">{{ error }}</div>
+        <div v-if="vendorStore.error" class="error-message">{{ vendorStore.error }}</div>
         <div v-if="success" class="success-message">Vendor added successfully!</div>
       </div>
     </form>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref } from 'vue';
-import { VendorService } from '../services/VendorService';
+<script setup lang="ts">
+import { reactive, ref } from 'vue';
+import { useVendorStore } from '../stores/vendorStore';
 import type { Vendor } from '../types/Vendor';
 
-export default defineComponent({
-  name: 'VendorForm',
-  emits: ['vendor-added'],
-  setup(props, { emit }) {
-    const form = reactive<Vendor>({
-      name: '',
-      contact_person: '',
-      email: '',
-      partner_type: 'Supplier'
-    });
-    
-    const isSubmitting = ref(false);
-    const error = ref<string | null>(null);
-    const success = ref(false);
-    
-    const resetForm = () => {
-      form.name = '';
-      form.contact_person = '';
-      form.email = '';
-      form.partner_type = 'Supplier';
-      error.value = null;
-    };
-    
-    const submitForm = async () => {
-      isSubmitting.value = true;
-      error.value = null;
-      success.value = false;
-      
-      try {
-        const newVendor = await VendorService.createVendor({ ...form });
-        success.value = true;
-        emit('vendor-added', newVendor);
-        
-        // Reset the form after successful submission
-        setTimeout(() => {
-          resetForm();
-          success.value = false;
-        }, 2000);
-      } catch (err: any) {
-        error.value = err.response?.data?.message || 'Failed to add vendor. Please try again.';
-      } finally {
-        isSubmitting.value = false;
-      }
-    };
-    
-    return {
-      form,
-      isSubmitting,
-      error,
-      success,
-      submitForm
-    };
-  }
+const emit = defineEmits(['vendor-added']);
+const vendorStore = useVendorStore();
+
+const form = reactive<Vendor>({
+  name: '',
+  contact_person: '',
+  email: '',
+  partner_type: 'Supplier'
 });
+
+const success = ref(false);
+
+const resetForm = () => {
+  form.name = '';
+  form.contact_person = '';
+  form.email = '';
+  form.partner_type = 'Supplier';
+};
+
+const submitForm = async () => {
+  success.value = false;
+  
+  try {
+    await vendorStore.addVendor({ ...form });
+    success.value = true;
+    emit('vendor-added');
+    
+    // Reset the form after successful submission
+    setTimeout(() => {
+      resetForm();
+      success.value = false;
+    }, 2000);
+  } catch (err) {
+    // Error is already handled in the store
+  }
+};
 </script>
 
 <style scoped>

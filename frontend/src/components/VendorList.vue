@@ -1,9 +1,9 @@
 <template>
   <div class="vendor-list">
     <h2>Vendor List</h2>
-    <div v-if="loading">Loading vendors...</div>
-    <div v-else-if="error" class="error">{{ error }}</div>
-    <div v-else-if="vendors.length === 0" class="no-vendors">No vendors found. Add your first vendor!</div>
+    <div v-if="vendorStore.loading">Loading vendors...</div>
+    <div v-else-if="vendorStore.error" class="error">{{ vendorStore.error }}</div>
+    <div v-else-if="vendorStore.vendors.length === 0" class="no-vendors">No vendors found. Add your first vendor!</div>
     <table v-else class="vendors-table">
       <thead>
         <tr>
@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="vendor in vendors" :key="vendor.id">
+        <tr v-for="vendor in vendorStore.vendors" :key="vendor.id">
           <td>{{ vendor.name }}</td>
           <td>{{ vendor.contact_person }}</td>
           <td>{{ vendor.email }}</td>
@@ -25,53 +25,27 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, watchEffect } from 'vue';
-import { VendorService } from '../services/VendorService';
-import type { Vendor } from '../types/vendor';
+<script setup lang="ts">
+import { onMounted, watch } from 'vue';
+import { useVendorStore } from '../stores/vendorStore';
 
-export default defineComponent({
-  name: 'VendorList',
-  emits: ['refresh'],
-  props: {
-    refreshTrigger: {
-      type: Number,
-      default: 0
-    }
-  },
-  setup(props, { emit }) {
-    const vendors = ref<Vendor[]>([]);
-    const loading = ref(true);
-    const error = ref<string | null>(null);
+const props = defineProps({
+  refreshTrigger: {
+    type: Number,
+    default: 0
+  }
+});
 
-    const fetchVendors = async () => {
-      loading.value = true;
-      error.value = null;
-      
-      try {
-        vendors.value = await VendorService.getVendors();
-      } catch (err) {
-        error.value = 'Failed to load vendors. Please try again later.';
-        console.error(err);
-      } finally {
-        loading.value = false;
-      }
-    };
+const vendorStore = useVendorStore();
 
-    onMounted(fetchVendors);
+onMounted(() => {
+  vendorStore.fetchVendors();
+});
 
-    // Watch for refresh triggers from parent
-    watchEffect(() => {
-      if (props.refreshTrigger > 0) {
-        fetchVendors();
-      }
-    });
-
-    return {
-      vendors,
-      loading,
-      error
-    };
+// Watch for refresh triggers from parent
+watch(() => props.refreshTrigger, (newValue, oldValue) => {
+  if (newValue > 0 && newValue !== oldValue) {
+    vendorStore.fetchVendors();
   }
 });
 </script>
