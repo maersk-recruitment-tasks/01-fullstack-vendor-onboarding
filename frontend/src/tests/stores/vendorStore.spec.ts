@@ -60,7 +60,7 @@ describe('VendorStore', () => {
     
     it('sets loading state during API call', async () => {
       // Create a promise that we can resolve manually
-      let resolvePromise: (value: Vendor[]) => void;
+      let resolvePromise: (value: Vendor[]) => void = () => {};
       const promise = new Promise<Vendor[]>(resolve => {
         resolvePromise = resolve;
       });
@@ -104,7 +104,7 @@ describe('VendorStore', () => {
     
     it('calls API and refreshes vendor list', async () => {
       // Mock API calls
-      vi.mocked(VendorService.createVendor).mockResolvedValue(undefined);
+      vi.mocked(VendorService.createVendor).mockResolvedValue({ ...newVendor, id: 3 });
       vi.mocked(VendorService.getVendors).mockResolvedValue([...mockVendors, {...newVendor, id: 3}]);
       
       const store = useVendorStore();
