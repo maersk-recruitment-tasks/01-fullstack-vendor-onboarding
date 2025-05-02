@@ -1,5 +1,5 @@
 # 01-fullstack-vendor-onboarding
-# Trusted Partners Portal – Full-Stack Assignment
+# Trusted Vendors Portal – Full-Stack Assignment
 
 ## Objective
 Working at Maersk means embracing DevOps practices and aiming for continuous delivery.
@@ -14,6 +14,7 @@ The system currently allows users to:
 ---
 ## Vendor Object Example
     {
+      "id": "1",
       "name": "Acme Freight",
       "contact_person": "John Doe",
       "email": "john.doe@acme.com",
