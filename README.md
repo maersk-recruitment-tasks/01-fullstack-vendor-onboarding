@@ -30,11 +30,13 @@ The repository contains:
 
 ## Your Tasks
 
-### 1. Feature Enhancement
-- Implement the delete functionality to allow users to remove vendor entries from the system
+### 1. Delete Enhancement
+- Implement a delete functionality to allow users to remove vendor entries from the system
 - Update both frontend and your chosen backend to support this feature
-
-### 2. Containerization & Deployment
+### 2. Unique Emails
+- Implement a uniqueness test so an email can be used only once and the user is informed that the choosen email has already been used.
+- Update both frontend and your chosen backend to support this feature
+### 3. Containerization & Deployment
 Choose one of the following deployment approaches:
 
 #### Option A: Docker Compose
@@ -42,7 +44,7 @@ Choose one of the following deployment approaches:
 - Create a Docker Compose configuration to run the entire system (frontend + backend)
 - Include clear instructions to build and start the application
 
-#### Option B: Kubernetes/Minikube Deployment
+#### Option B (Advanced): Kubernetes/Minikube Deployment
 - Create Kubernetes manifests (YAML files) for both frontend and your chosen backend
 - Ensure services can discover and communicate (e.g., using `ClusterIP`)
 - Use **Minikube** to test locally
