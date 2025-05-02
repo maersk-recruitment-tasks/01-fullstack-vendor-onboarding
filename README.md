@@ -9,7 +9,7 @@ Your task is to enhance and deploy this application by completing specific requi
 
 The system currently allows users to:
 - Register a vendor (name, contact person, email, partner type [Supplier/Partner])
-- View a list of registered partners
+- View a list of registered vendors
 
 ---
 ## Vendor Object Example
