@@ -63,7 +63,6 @@ import { reactive, ref } from 'vue';
 import { useVendorStore } from '../stores/vendorStore';
 import type { Vendor } from '../types/Vendor';
 
-const emit = defineEmits(['vendor-added']);
 const vendorStore = useVendorStore();
 
 const form = reactive<Vendor>({
@@ -88,7 +87,6 @@ const submitForm = async () => {
   try {
     await vendorStore.addVendor({ ...form });
     success.value = true;
-    emit('vendor-added');
     
     // Reset the form after successful submission
     setTimeout(() => {
