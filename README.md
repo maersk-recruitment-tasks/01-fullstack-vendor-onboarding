@@ -23,15 +23,29 @@ The system currently allows users to:
 ## Existing Implementation
 
 The repository contains:
-- A Vue.js frontend application 
+- A Vue.js frontend application
 - Two backend implementations (choose one):
   - Java (Spring Boot)
   - Node.js (TypeScript)
 
+## Available Backends
+You may choose which backend implementation to work with:
+
+### Java (Spring Boot)
+- Located in the `backend-java` directory
+- Uses H2 in-memory database
+- Includes basic CRUD operations (except delete)
+
+### Node.js (TypeScript)
+- Located in the `backend-node` directory 
+- Uses SQLite in-memory database
+- Includes basic CRUD operations (except delete)
+---
 ## Your Tasks
 
-### 1. Delete Enhancement
+### 1. Delete vendor
 - Implement a delete functionality to allow users to remove vendor entries from the system
+- Add a confirmation popup before deletion.
 - Update both frontend and your chosen backend to support this feature
 ### 2. Unique Emails
 - Implement a uniqueness test so an email can be used only once and the user is informed that the choosen email has already been used.
@@ -51,24 +65,7 @@ Choose one of the following deployment approaches:
 - Provide documentation or a script to:
   - Build and push Docker images to Minikube's Docker daemon
   - Apply Kubernetes configs to start the app
-
 ---
-
-## Available Backends
-You may choose which backend implementation to work with:
-
-### Java (Spring Boot)
-- Located in the `backend-java` directory
-- Uses H2 in-memory database
-- Includes basic CRUD operations (except delete)
-
-### Node.js (TypeScript)
-- Located in the `backend-node` directory 
-- Uses SQLite in-memory database
-- Includes basic CRUD operations (except delete)
-
----
-
 ## Evaluation Criteria
 
 - **Code clarity & organisation** – Is the code readable, modular, testable and well-structured?
