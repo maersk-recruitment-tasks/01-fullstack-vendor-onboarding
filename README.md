@@ -75,7 +75,6 @@ You may choose which backend implementation to work with:
 - **Full-stack ownership** – Can you deliver a cohesive, working system with the required enhancements?
 - **Pragmatism** – Did you make thoughtful decisions and sensible trade-offs?
 - **DevOps awareness** – Is the system easy to build, run, and maintain?
-- Your approach to integrating the delete functionality into both frontend and backend
 - Quality of your containerization and deployment solution
 
 ---
