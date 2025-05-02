@@ -56,3 +56,52 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# Maven specific
+backend-java/target/
+backend-java/pom.xml.tag
+backend-java/pom.xml.releaseBackup
+backend-java/pom.xml.versionsBackup
+backend-java/pom.xml.next
+backend-java/release.properties
+backend-java/dependency-reduced-pom.xml
+backend-java/buildNumber.properties
+backend-java/.mvn/timing.properties
+backend-java/.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Spring Boot
+.springBeans
+.spring-boot-devtools
+
+# H2 Database
+*.db
+*.mv.db
+*.trace.db

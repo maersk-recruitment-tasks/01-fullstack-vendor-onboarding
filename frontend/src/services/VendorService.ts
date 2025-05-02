@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Vendor } from '../types/Vendor';
 
-const API_URL = 'http://localhost:3000/api'; // Assuming backend runs on port 3000
+const API_URL = 'http://localhost:8081/api'; // Assuming backend runs on port 3000
 
 export const VendorService = {
   async getVendors(): Promise<Vendor[]> {
