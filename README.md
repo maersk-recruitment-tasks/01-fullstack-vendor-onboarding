@@ -2,14 +2,14 @@
 # Trusted Partners Portal – Full-Stack Assignment
 
 ## Objective
-Working at Maersk means embracing DevOps practices and aiming for continuous delivery. While real-world system infrastructures can be complex, 
-this assignment gives you a simple, self-contained problem where you can show how you'd build for continuous delivery from the ground up.
+Working at Maersk means embracing DevOps practices and aiming for continuous delivery.
 
-Your task is to build a full-stack web application called **Trusted vendor Portal** that enables users to:
+In this repository, you'll find a basic implementation of the **Trusted Vendor Portal** application. 
+Your task is to enhance and deploy this application by completing specific requirements listed below.
 
-- Register a vendor (name, contact person, email, partner type [Supplier/Partner]
+The system currently allows users to:
+- Register a vendor (name, contact person, email, partner type [Supplier/Partner])
 - View a list of registered partners
-- *(Optional)* Edit or delete a partner entry
 
 ---
 ## Vendor Object Example
@@ -20,79 +20,71 @@ Your task is to build a full-stack web application called **Trusted vendor Porta
       "partner_type": "Supplier" 
     }
 
-## Requirements
+## Existing Implementation
 
-### Frontend
+The repository contains:
+- A Vue.js frontend application 
+- Two backend implementations (choose one):
+  - Java (Spring Boot)
+  - Node.js (TypeScript)
 
-- Use a modern JavaScript framework: **Vue (Preferred)**, **React**, **Svelte**, etc.
-- Clean, usable  UI design
-- Responsive layout is a plus
+## Your Tasks
 
-### Backend
+### 1. Feature Enhancement
+- Implement the delete functionality to allow users to remove vendor entries from the system
+- Update both frontend and your chosen backend to support this feature
 
-- Expose 1–2 API endpoints to:
-  - Register a new vendor
-  - Retrieve the list of vendors
-- Use simple data persistence:
-  - In-memory storage or **SQLite**
-- Supported languages/frameworks:
-  - **Java (Spring Boot) - Preferred**
-  - **Kotlin**
-  - **Node.js (Express, Nest.js)**
-  - **Python (FastAPI, Flask)**
-  - **Go (Gin, Fiber)**
+### 2. Containerization & Deployment
+Choose one of the following deployment approaches:
 
-We prefer **Vue** on the frontend and **Java Spring Boot** on the backend because that is what we use on a daily basis, 
-but feel free to use whatever framework best demonstrates your strengths.
+#### Option A: Docker Compose
+- Containerize your chosen backend using Docker
+- Create a Docker Compose configuration to run the entire system (frontend + backend)
+- Include clear instructions to build and start the application
 
-### Packaging & Deployment
-
-- Containerize both frontend and backend using **Docker**
-- Use **Docker Compose** to define and run the full system locally
-- Include clear instructions or a script to:
-  - Build and start the app
-
----
-
-## Optional frontend enhancements
-
-- Add basic **form validation** on the frontend
-- Include lightweight **authentication** (e.g., token-based or basic auth)
-
----
-
-## Optional backend enchancements: Kubernetes / Minikube Deployment
-
-Showcase your DevOps knowledge by instead of using docker comppose, you can adapt the project for Kubernetes:
-
-- Create Kubernetes manifests (YAML files) for both frontend and backend
+#### Option B: Kubernetes/Minikube Deployment
+- Create Kubernetes manifests (YAML files) for both frontend and your chosen backend
 - Ensure services can discover and communicate (e.g., using `ClusterIP`)
 - Use **Minikube** to test locally
+- Provide documentation or a script to:
+  - Build and push Docker images to Minikube's Docker daemon
+  - Apply Kubernetes configs to start the app
 
-Provide documentation or a script to:
+---
 
-- Build and push Docker images to Minikube’s Docker daemon
-- Apply Kubernetes configs to start the app
+## Available Backends
+You may choose which backend implementation to work with:
+
+### Java (Spring Boot)
+- Located in the `backend-java` directory
+- Uses H2 in-memory database
+- Includes basic CRUD operations (except delete)
+
+### Node.js (TypeScript)
+- Located in the `backend-node` directory 
+- Uses SQLite in-memory database
+- Includes basic CRUD operations (except delete)
 
 ---
 
 ## Evaluation Criteria
 
 - **Code clarity & organisation** – Is the code readable, modular, testable and well-structured?
-- **Full-stack ownership** – Can you deliver a cohesive, working system?
+- **Full-stack ownership** – Can you deliver a cohesive, working system with the required enhancements?
 - **Pragmatism** – Did you make thoughtful decisions and sensible trade-offs?
 - **DevOps awareness** – Is the system easy to build, run, and maintain?
-- **(Bonus)** Kubernetes deployment shows platform-level thinking and maturity
+- Your approach to integrating the delete functionality into both frontend and backend
+- Quality of your containerization and deployment solution
 
 ---
 
 ## Submission Instructions
 
 1. **Fork** this repository into your own GitHub account.
-2. Complete the assignment in your fork.
-3. Make sure your repo includes setup instructions and a `README.md`.
+2. Complete the assigned tasks in your fork.
+3. Make sure your repo includes setup instructions and an updated `README.md`.
 4. Share the link to your repository with us as part of your application.
 
 ---
 
-We’re excited to see how you approach the task — feel free to get creative, make reasonable trade-offs, and show us how you think as an engineer.
+We're excited to see how you approach these tasks — feel free to get creative, make reasonable trade-offs, and show us how you think as an engineer. We're particularly interested in your understanding of full-stack development and DevOps practices.
