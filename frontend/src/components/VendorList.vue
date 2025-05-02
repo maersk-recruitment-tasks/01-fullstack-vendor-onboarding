@@ -7,6 +7,7 @@
     <table v-else class="vendors-table">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Name</th>
           <th>Contact Person</th>
           <th>Email</th>
@@ -15,6 +16,7 @@
       </thead>
       <tbody>
         <tr v-for="vendor in vendorStore.vendors" :key="vendor.id">
+          <td>{{ vendor.id }}</td>
           <td>{{ vendor.name }}</td>
           <td>{{ vendor.contact_person }}</td>
           <td>{{ vendor.email }}</td>
