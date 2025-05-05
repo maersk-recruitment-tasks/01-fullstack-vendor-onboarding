@@ -2,9 +2,13 @@
 # Trusted Vendors Portal – Full-Stack Assignment
 
 ## Objective
-Working at Maersk means embracing DevOps practices and aiming for continuous delivery.
+Welcome to your application assessment assignment. This is a chance for you to show us your coding and problem solving skills.
+You are applying for a fullstack position so this assignment requires you to solve both frontend and backend challenges.
 
-In this repository, you'll find a basic implementation of the **Trusted Vendor Portal** application. 
+Nobody expects anyone to know everything so if a particular assignment is outside of your realm of experience, 
+you can either skip it or add a solution that fits your experience better. 
+
+In this repository, you'll find a basic demo implementation of the **Trusted Vendor Portal** application. 
 Your task is to enhance and deploy this application by completing specific requirements listed below.
 
 The system currently allows users to:
@@ -35,12 +39,12 @@ You may choose which backend implementation to work with:
 ### Java (Spring Boot)
 - Located in the `backend-java` directory
 - Uses H2 in-memory database
-- Includes basic CRUD operations (except delete)
+- Includes basic create and list operations
 
 ### Node.js (TypeScript)
 - Located in the `backend-node` directory 
 - Uses SQLite in-memory database
-- Includes basic CRUD operations (except delete)
+- Includes basic create and list operations
 ---
 ## Your Tasks
 
@@ -48,10 +52,16 @@ You may choose which backend implementation to work with:
 - Implement a delete functionality to allow users to remove vendor entries from the system
 - Add a confirmation popup before deletion.
 - Update both frontend and your chosen backend to support this feature
-### 2. Unique Emails
-- Implement a uniqueness test so an email can be used only once and the user is informed that the choosen email has already been used.
-- Update both frontend and your chosen backend to support this feature
-### 3. Containerization & Deployment
+
+### 2. Fix the UI bug
+- When adding a vendor, QA has reported that it is possible to click the add button multiple times before the 
+  form resets, leading to duplicate entries and a bad user experience.
+
+### 3. Unique Emails
+- Ensure that vendor emails are unique across the system. If a user tries to register a vendor with a duplicate email, they should be informed of the conflict. 
+  Think about where this logic should live (frontend, backend, or both) and justify your approach
+
+### 4. Containerization & Deployment
 Choose one of the following deployment approaches:
 
 #### Option A: Docker Compose
@@ -63,13 +73,14 @@ Choose one of the following deployment approaches:
 - Create Kubernetes manifests (YAML files) for both frontend and your chosen backend
 - Ensure services can discover and communicate (e.g., using `ClusterIP`)
 - Use **Minikube** to test locally
-- Provide documentation or a script to:
+- Provide clear documentation or scripts to:
   - Build and push Docker images to Minikube's Docker daemon
   - Apply Kubernetes configs to start the app
 ---
-## Evaluation Criteria
 
+## Evaluation Criteria
 - **Code clarity & organisation** – Is the code readable, modular, testable and well-structured?
+- **Testing** - How did you use testing to support your development efforts
 - **Full-stack ownership** – Can you deliver a cohesive, working system with the required enhancements?
 - **Pragmatism** – Did you make thoughtful decisions and sensible trade-offs?
 - **DevOps awareness** – Is the system easy to build, run, and maintain?
@@ -81,7 +92,10 @@ Choose one of the following deployment approaches:
 
 1. **Fork** this repository into your own GitHub account.
 2. Complete the assigned tasks in your fork.
-3. Make sure your repo includes setup instructions and an updated `README.md`.
+3. **Documentation**
+    1. Ensure your repository includes setup instructions and an updated README.md.
+    2. Provide a short description of your approach to solving each task
+    3. Highlight any assumptions, trade-offs, or challenges encountered during development.
 4. Share the link to your repository with us as part of your application.
 
 ---
