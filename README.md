@@ -6,7 +6,7 @@ Welcome to your application assessment assignment. This is a chance for you to s
 You are applying for a fullstack position so this assignment requires you to solve both frontend and backend challenges.
 
 Nobody expects anyone to know everything so if a particular assignment is outside of your realm of experience, 
-you can either skip it or add a solution that fits your experience better. 
+you may either skip it or propose a solution aligned with your experience.. 
 
 In this repository, you'll find a basic demo implementation of the **Trusted Vendor Portal** application. 
 Your task is to enhance and deploy this application by completing specific requirements listed below.
@@ -50,7 +50,7 @@ You may choose which backend implementation to work with:
 
 ### 1. Delete vendor
 - Implement a delete functionality to allow users to remove vendor entries from the system
-- Add a confirmation popup before deletion.
+- Include a confirmation dialog before deletion to prevent accidental removal.
 - Update both frontend and your chosen backend to support this feature
 
 ### 2. Fix the UI bug
@@ -77,6 +77,9 @@ Choose one of the following deployment approaches:
 - Provide clear documentation or scripts to:
   - Build and push Docker images to Minikube's Docker daemon
   - Apply Kubernetes configs to start the app
+
+You're welcome to make UX improvements or add minor enhancements, as long as the core requirements are clearly addressed.
+
 ---
 
 ## Evaluation Criteria
@@ -85,7 +88,7 @@ Choose one of the following deployment approaches:
 - **Full-stack ownership** – Can you deliver a cohesive, working system with the required enhancements?
 - **Pragmatism** – Did you make thoughtful decisions and sensible trade-offs?
 - **DevOps awareness** – Is the system easy to build, run, and maintain?
-- Quality of your containerization and deployment solution
+- **Deployment quality** – Is your containerization strategy practical, reproducible, and well-documented?"
 
 ---
 
