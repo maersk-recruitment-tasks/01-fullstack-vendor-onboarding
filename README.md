@@ -54,12 +54,13 @@ You may choose which backend implementation to work with:
 - Update both frontend and your chosen backend to support this feature
 
 ### 2. Fix the UI bug
-- When adding a vendor, QA has reported that it is possible to click the add button multiple times before the 
-  form resets, leading to duplicate entries and a bad user experience.
+- Currently, clicking the "Add" button multiple times before the form resets can result in duplicate vendor entries.
+- Prevent this behavior and improve the form UX
 
 ### 3. Unique Emails
 - Ensure that vendor emails are unique across the system. If a user tries to register a vendor with a duplicate email, they should be informed of the conflict. 
   Think about where this logic should live and how the constraint is best enforced (frontend, backend, data storage or all) and justify your approach
+- Document your reasoning
 
 ### 4. Containerization & Deployment
 Choose one of the following deployment approaches:
