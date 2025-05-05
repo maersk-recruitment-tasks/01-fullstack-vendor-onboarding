@@ -59,7 +59,7 @@ You may choose which backend implementation to work with:
 
 ### 3. Unique Emails
 - Ensure that vendor emails are unique across the system. If a user tries to register a vendor with a duplicate email, they should be informed of the conflict. 
-  Think about where this logic should live (frontend, backend, or both) and justify your approach
+  Think about where this logic should live and how the constraint is best enforced (frontend, backend, data storage or all) and justify your approach
 
 ### 4. Containerization & Deployment
 Choose one of the following deployment approaches:
