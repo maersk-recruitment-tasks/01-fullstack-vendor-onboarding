@@ -43,7 +43,7 @@ You may choose which backend implementation to work with:
 
 ### Node.js (TypeScript)
 - Located in the `backend-node` directory 
-- Uses SQLite in-memory database
+- Uses SQLite database
 - Includes basic create and list operations
 ---
 ## Your Tasks
