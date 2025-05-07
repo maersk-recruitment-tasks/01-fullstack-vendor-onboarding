@@ -55,14 +55,16 @@ You may choose which backend implementation to work with:
 
 ### 2. Fix the UI bug
 - Currently, clicking the "Add" button multiple times before the form resets can result in duplicate vendor entries.
-- Prevent this behavior and improve the form UX
+- Prevent this behavior to improve the form UX
 
 ### 3. Unique Emails
 - Ensure that vendor emails are unique across the system. If a user tries to register a vendor with a duplicate email, they should be informed of the conflict. 
   Think about where this logic should live and how the constraint is best enforced (frontend, backend, data storage or all) and justify your approach
 - Document your reasoning
 
-### 4. Containerization & Deployment
+### 4. Containerization & Deployment (Optional)
+At maerks we host most of our backend services using pods and k8. If you have experience or find the challenge interesting, give this assignment a go.
+
 Choose one of the following deployment approaches:
 
 #### Option A: Docker Compose
@@ -88,7 +90,7 @@ You're welcome to make UX improvements or add minor enhancements, as long as the
 - **Full-stack ownership** – Can you deliver a cohesive, working system with the required enhancements?
 - **Pragmatism** – Did you make thoughtful decisions and sensible trade-offs?
 - **DevOps awareness** – Is the system easy to build, run, and maintain?
-- **Deployment quality** – Is your containerization strategy practical, reproducible, and well-documented?"
+- **Deployment quality** – If completed, is your containerization strategy practical, reproducible, and well-documented?"
 
 ---
 
