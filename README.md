@@ -96,14 +96,17 @@ You're welcome to make UX improvements or add minor enhancements, as long as the
 
 ## Submission Instructions
 
-1. **Fork** this repository into your own GitHub account.
+1. **Fork** or **Copy** this repository into your own GitHub account.
 2. Complete the assigned tasks in your fork.
 3. **Documentation**
     1. Ensure your repository includes setup instructions and an updated README.md.
     2. Provide a short description of your approach to solving each task
     3. Highlight any assumptions, trade-offs, or challenges encountered during development.
-4. Share the link to your repository with us as part of your application.
-
+4. In your readme.md file, also answer the following questions:
+    1. What do I love most about being a software engineer.
+    2. What is most important to me when it comes to working in a team
+    3. What is the worst part of being a software engineer.
+4. Share the link to your repository with us.
 ---
 
 We're excited to see how you approach these tasks — feel free to get creative, make reasonable trade-offs, and show us how you think as an engineer. We're particularly interested in your understanding of full-stack development and DevOps practices.
