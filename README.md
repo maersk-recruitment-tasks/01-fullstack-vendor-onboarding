@@ -97,7 +97,7 @@ You're welcome to make UX improvements or add minor enhancements, as long as the
 ## Submission Instructions
 
 1. **Copy** this repository into your own GitHub account.
-2. Complete the assigned tasks in your fork.
+2. Complete the assigned tasks in copy.
 3. **Documentation**
     1. Ensure your repository includes setup instructions and an updated README.md.
     2. Provide a short description of your approach to solving each task
