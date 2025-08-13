@@ -18,7 +18,7 @@ The system currently allows users to:
 ---
 ## Vendor Object Example
     {
-      "id": "1",
+      "id": 1,
       "name": "Acme Freight",
       "contact_person": "John Doe",
       "email": "john.doe@acme.com",
@@ -110,3 +110,123 @@ You're welcome to make UX improvements or add minor enhancements, as long as the
 ---
 
 We're excited to see how you approach these tasks — feel free to get creative, make reasonable trade-offs, and show us how you think as an engineer. We're particularly interested in your understanding of full-stack development and DevOps practices.
+
+---
+
+## Implementation Summary
+
+#### 1. Delete Vendor Feature
+
+**Changes:**
+1. Click delete button under actions
+2. Confirm deletion in dialog
+3. Backend processes deletion
+4. List updates automatically
+
+`frontend/src/components/VendorList.vue`
+   - Added delete button and confirmation dialog
+   - Updated UI to reflect changes immediately after deletion
+
+`frontend/src/tests/components/VendorList.spec.ts`
+   - Added test case for delete vendor functionality
+
+`backend-node/src/routes/vendors.ts`
+   - Added DELETE endpoint
+   - Added `deleteVendor` method
+
+
+#### 2. Duplicate Submission Prevention
+
+**Changes:**
+1. Button disables immediately on click
+2. Stays disabled during submission
+3. Re-enables only after form reset
+4. Prevents any double-submissions
+
+**Challenges:**
+- Identified root cause of the issue in the form submission logic
+- Added submission state management using Vue's reactive refs
+- Implemented fix which doesn't interfere with form validation
+
+
+`frontend/src/components/VendorForm.vue`
+   - Added submission control to prevent duplicate entries
+   - Implemented email uniqueness check
+   - Added error display for duplicate emails
+   - Improved form reset handling
+
+`frontend/src/tests/components/VendorForm.spec.ts`
+   - Added test case to validate unique emails
+
+#### 3. Email Uniqueness
+
+**Changes:**
+1. Checks email before form submission
+2. Returns error if email exists
+3. Prevents duplicate entries at database level
+
+`frontend/src/services/VendorService.ts`
+   - Added `checkEmailExists` method with email validation logic 
+   - Enhanced error handling
+   
+`backend-node/src/db/database.ts`
+   - Added unique constraint for email field
+   - Improved error handling for duplicate entries
+
+
+#### 4. Docker Containerization
+
+`frontend/Dockerfile`
+   - Multi-stage build for optimized production image
+   - Nginx configuration for SPA routing
+
+`backend-node/Dockerfile`
+   - Node.js environment setup
+
+`docker-compose.yml`
+   - Services configuration for frontend and backend
+   - Environment variables setup
+   - Network configuration
+
+### 5. Instructions to run test cases
+
+  - npm run test
+
+
+### Instructions to Run
+
+1. Install Docker and Docker Compose
+2. Run in project root:
+   ```bash
+   docker-compose up --build
+   ```
+3. Access:
+   - Frontend: http://localhost:8080
+   - Backend: http://localhost:3000
+
+
+### Personal Reflections
+
+#### What I Love Most About Being a Software Engineer
+- I enjoy building things from scratch and watching ideas turn into real products.
+- I like learning new things and keeping up with technology.
+- I appreciate the creativity involved in coding and designing systems.
+- I enjoy working with other smart people and sharing knowledge.
+- I appreciate the flexibility and freedom that comes with this job.
+
+
+#### Most Important Aspects of Working in a Team
+- Good communication so everyone knows what’s going on.
+- Trusting & respecting each other time & work.
+- Helping each other when someone is stuck.
+- Sharing ideas and listening to different opinions.
+- Being open about mistakes and learning from them.
+- Supporting each other, especially during tough times.
+
+
+#### Challenging Aspects of Software Engineering
+- Figuring out why something isn’t working can be frustrating and time-consuming.
+- Communicating technical ideas to non-technical people can be challenging.
+- It can be stressful when things break in production and you need to fix them quickly.
+- Sometimes requirements change and you have to redo work.
+

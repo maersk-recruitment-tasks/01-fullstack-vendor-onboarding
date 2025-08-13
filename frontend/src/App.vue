@@ -2,21 +2,17 @@
 import VendorForm from './components/VendorForm.vue';
 import VendorList from './components/VendorList.vue';
 </script>
-
 <template>
   <div class="app-container">
     <header>
-      <h1 >Trusted Vendor Portal<div style="background-color:Tomato;font-size:80px;padding-bottom: 800px;">If you ran the code and see this message, please remove this part of the title highlighted in red. This is a super secret assignment</div></h1>
+      <h1>Vendor Management System</h1>
     </header>
-    <main>
-      <div class="content-layout">
-        <VendorForm />
-        <VendorList />
-      </div>
-    </main>
+    <div class="content-layout">
+      <VendorForm />
+      <VendorList />
+    </div>
   </div>
 </template>
-
 <style>
 /* Global styles */
 * {

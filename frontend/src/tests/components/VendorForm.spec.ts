@@ -3,6 +3,8 @@ import { mount } from '@vue/test-utils';
 import { createTestingPinia } from '@pinia/testing';
 import VendorForm from '../../components/VendorForm.vue';
 import { useVendorStore } from '../../stores/vendorStore';
+import { nextTick } from 'vue';
+
 
 describe('VendorForm', () => {
   beforeEach(() => {
@@ -126,5 +128,39 @@ describe('VendorForm', () => {
     // Check that error message is shown
     expect(wrapper.find('.error-message').exists()).toBe(true);
     expect(wrapper.find('.error-message').text()).toBe('Failed to add vendor');
+  });
+
+  it('shows email exists error and does not submit if email is taken', async () => {
+  const wrapper = mount(VendorForm, {
+    global: {
+      plugins: [
+        createTestingPinia({
+          createSpy: vi.fn,
+          initialState: {
+            vendor: { loading: false, error: null }
+          }
+        })
+      ]
+    }
+  });
+
+  const store = useVendorStore();
+  
+  store.checkEmailExists = vi.fn().mockResolvedValue(true);
+  store.addVendor = vi.fn();
+
+  await wrapper.find('#name').setValue('Test Company');
+  await wrapper.find('#contactPerson').setValue('John Test');
+  await wrapper.find('#email').setValue('john@testcompany.com');
+  await wrapper.find('#partnerType').setValue('Partner');
+  
+  await wrapper.find('form').trigger('submit.prevent');
+  await nextTick();
+  
+  const errorMessage = wrapper.find('.error-message');
+  expect(errorMessage.exists()).toBe(true);
+  expect(errorMessage.text()).toBe('A vendor with this email already exists. Please use a different email address.');
+  
+  expect(store.addVendor).not.toHaveBeenCalled();
   });
 });

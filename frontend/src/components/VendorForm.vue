@@ -32,7 +32,9 @@
           type="email" 
           required 
           placeholder="contact@example.com"
+          @input="emailError = ''"
         />
+        <div v-if="emailError" class="error-message">{{ emailError }}</div>
       </div>
       
       <div class="form-group">
@@ -48,8 +50,8 @@
       </div>
       
       <div class="form-actions">
-        <button type="submit" :disabled="vendorStore.loading">
-          {{ vendorStore.loading ? 'Submitting...' : 'Add Vendor' }}
+        <button type="submit" :disabled="(vendorStore.loading || submitting)">
+          {{ (vendorStore.loading || submitting) ? 'Submitting...' : 'Add Vendor' }}
         </button>
         <div v-if="vendorStore.error" class="error-message">{{ vendorStore.error }}</div>
         <div v-if="success" class="success-message">Vendor added successfully!</div>
@@ -73,6 +75,8 @@ const form = reactive<Vendor>({
 });
 
 const success = ref(false);
+const submitting = ref(false);
+const emailError = ref('');
 
 const resetForm = () => {
   form.name = '';
@@ -82,7 +86,17 @@ const resetForm = () => {
 };
 
 const submitForm = async () => {
+  if (submitting.value) return;
+  submitting.value = true;
   success.value = false;
+  emailError.value = '';
+
+  const emailExists = await vendorStore.checkEmailExists(form.email);
+  if (emailExists) {
+    emailError.value = 'A vendor with this email already exists. Please use a different email address.';
+    submitting.value = false;
+    return;
+  }
   
   try {
     await vendorStore.addVendor({ ...form });
@@ -92,10 +106,12 @@ const submitForm = async () => {
     setTimeout(() => {
       resetForm();
       success.value = false;
+      submitting.value = false;
     }, 2000);
   } catch (err) {
     // Error is already handled in the store
-  }
+    submitting.value = false;
+  } 
 };
 </script>
 

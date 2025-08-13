@@ -12,6 +12,7 @@
           <th>Contact Person</th>
           <th>Email</th>
           <th>Partner Type</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,9 @@
           <td>{{ vendor.contact_person }}</td>
           <td>{{ vendor.email }}</td>
           <td>{{ vendor.partner_type }}</td>
+          <td>
+            <button class="vendor-delete" @click="handleDeleteConfirmation(vendor.id!)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -37,6 +41,12 @@ const vendorStore = useVendorStore();
 onMounted(() => {
   vendorStore.fetchVendors();
 });
+
+const handleDeleteConfirmation = (vendorId: number) => {
+  if (confirm('Are you sure you want to delete this vendor?')) {
+    vendorStore.deleteVendor(vendorId);
+  }
+};
 </script>
 
 <style scoped>
@@ -75,5 +85,16 @@ onMounted(() => {
   padding: 20px;
   text-align: center;
   color: #666;
+}
+.vendor-delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.vendor-delete:hover {
+  background-color: #d32f2f;
 }
 </style>
