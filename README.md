@@ -97,16 +97,16 @@ You're welcome to make UX improvements or add minor enhancements, as long as the
 ## Submission Instructions
 
 1. **Copy** this repository into your own GitHub account.
-2. Complete the assigned tasks in copy.
-3. **Documentation**
+2. Create a branch and complete the assigning in that branch
+4. **Documentation**
     1. Ensure your repository includes setup instructions and an updated README.md.
     2. Provide a short description of your approach to solving each task
     3. Highlight any assumptions, trade-offs, or challenges encountered during development.
-4. In your readme.md file, also answer the following questions:
+5. In your readme.md file, also answer the following questions:
     1. What do I love most about being a software engineer.
     2. What is most important to me when it comes to working in a team
     3. What is the worst part of being a software engineer.
-4. Share the link to your repository with us.
+5. Create a pull request to the main branch and share the link to the pull request with us.
 ---
 
 We're excited to see how you approach these tasks — feel free to get creative, make reasonable trade-offs, and show us how you think as an engineer. We're particularly interested in your understanding of full-stack development and DevOps practices.
